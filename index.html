@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphic Design Website | Création Visuelle & Design</title>
+    <!-- Lien Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!--Lien Swiper CSS-->
+    <Link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Entete / Barre de navigation -->
+  <header>
+    <nav class="navbar section-content"> 
+      <a href="#" class="nav-logo">
+        <div class="logo-container">
+          <img src="Image/logo.png" alt="RK Graphics Logo" class="logo-img">
+          <h2 class="logo-text">RK Graphics</h2>  
+        </div>
+      </a>
+      
+      <!-- Menu Sans JS -->
+      <input type="checkbox" id="burger-toggle" class="burger-toggle">
+      <label for="burger-toggle" class="burger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="#accueil" class="nav-link">Accueil</a>
+        </li>
+        <li class="nav-item">
+          <a href="#apropos" class="nav-link">À Propos</a>
+        </li>
+        <li class="nav-item">
+          <a href="#services" class="nav-link">Services</a>
+        </li>
+        <li class="nav-item">
+          <a href="#temoignages" class="nav-link">Témoignages</a>
+        </li>
+        <li class="nav-item">
+          <a href="#portfolio" class="nav-link">Portfolio</a>
+        </li>
+        <li class="nav-item">
+          <a href="#contact" class="nav-link">Contact</a>
+        </li>
+      </ul> 
+    </nav>
+  </header>
+ 
+    <!-- Section Accueil-->
+    <section class="hero-section" id="accueil">
+      <div class="section-content">
+        <div class="hero-details">
+          <h2 class="title">Meilleurs Visuels</h2>
+          <h3 class="subtitle">Boostez votre image avec des visuels inoubliables !</h3>
+          <p class="description">Bienvenue chez RK Graphics là où chaque identité
+            visuelle éveille une émotion.</p>
+            <div class="buttons">
+              <a href="https://wa.me/22657579651" class="button order-now">Commandez Maintenant</a>
+              <a href="https://wa.me/22657579651" class="button contact-us">Contactez Nous</a>
+            </div>
+          </div>
+          <div class="hero-image-wrapper">
+            <img src="Image/header-1.png" alt="Hero" class="hero-image">
+          </div>
+      </div>
+    </section>
+
+    <!--A propos de-->
+    <section class="about-section" id="apropos">
+      <div class="section-content">
+       <div class="about-image-wrapper">
+        <img src="Image/Photoshoot-kevin.jpg" alt="About"
+         class="about-image">
+        </div>
+        <div class="about-details">
+          <h2 class="section-title">A Propos de Nous</h2> 
+          <p class="text" style="text-align: justify;">Chez RK Graphics, nous croyons que chaque image raconte une histoire.
+            Spécialisés dans le graphic design, nous mettons notre passion et notre créativité au service de votre image de marque.
+            De la création d'affiches percutantes à l'élaboration d'identités visuelles uniques, nous travaillons avec précision pour donner vie à vos idées.</p>  
+           <div class="social-link-list">
+             <a href="https://www.facebook.com/share/1Eqj3wBgy2/" class="social-link"><i class="fab fa-facebook"></i></a>
+            <a href="https://wa.me/22657579651" class="social-link"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.linkedin.com/in/kevin-rayaisse-2b3789289" class="social-link"><i class="fab fa-linkedin"></i></a> 
+           </div>
+       </div> 
+      </div>
+    </section>
+    
+    <!--Section Menu-->
+    <section class="menu-section" id="services">
+      <h2 class="section-title">Nos Services</h2>
+      <div class="section-content">
+        <ul class="menu-list">
+          <li class="menu-item">
+            <img src="Image/Kakemonos.png" alt="Kakemonos"
+             class="menu-image">
+             <h3 class="name">Kakémonos</h3>
+             <p class="text">Un support vertical percutant, 
+              parfait pour capturer l'attention en vitrine ou lors d'évènements.
+             </p>         
+          </li>
+          <li class="menu-item">
+            <img src="Image/logos.png" alt="Logos"
+             class="menu-image">
+             <h3 class="name">Logos</h3>
+             <p class="text">Un symbole unique qui représente parfaitement votre
+               entreprise et renforce votre image de marque.
+             </p>         
+          </li>
+          <li class="menu-item">
+            <img src="Image/Affiche.png" alt="Affiche"
+             class="menu-image">
+             <h3 class="name">Affiches</h3>
+             <p class="text">Idéales pour diffuser vos messages à grande échelle,
+               les affiches attirent l'attention ou qu'elles soient placées.
+             </p>         
+          </li>
+          <li class="menu-item">
+            <img src="Image/Flyer.png" alt="Flyer"
+             class="menu-image">
+             <h3 class="name">Flyers</h3>
+             <p class="text">Un format compact pour une communication percutante,
+               idéal pour distribuer et promouvoir vos services.
+             </p>         
+          </li>
+          <li class="menu-item">
+            <img src="Image/brochures.png" alt="Brochures"
+             class="menu-image">
+             <h3 class="name">Brochures</h3>
+             <p class="text">Un support complet pour présenter vos services de 
+              manière détaillée et attrayante.
+             </p>         
+          </li>
+          <li class="menu-item">
+            <img src="Image/Carte de visite.png" alt="Carte de visite"
+             class="menu-image">
+             <h3 class="name">Carte de visite</h3>
+             <p class="text">Un moyen élégant et pratique de présenter votre 
+              entreprise et de marquer chaque rencontre professionnelle.
+             </p>         
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!--Section Temoignages-->
+    <section class="testimonials-section" id="temoignages">
+      <h2 class="section-title">Temoignages</h2>
+      <div class="section-content">
+        <div class="swiper testimonial-swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="testimonial">
+                <img src="Image/Axel.jpg" alt="User" class="user-image">
+                <h3 class="name">Axel Sanou</h3>
+                <p class="feedback">"Design pro, rapide et exactement ce que je voulais. Super travail !"</p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="testimonial">
+                <img src="Image/Ilary.jpg" alt="User" class="user-image">
+                <h3 class="name">Ilary Koara</h3>
+                <p class="feedback">"Super design, livraison rapide et résultat au top. Je referai appel sans hésiter !"</p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="testimonial">
+                <img src="Image/Tkj.jpg" alt="User" class="user-image">
+                <h3 class="name">Judicael Traoré</h3>
+                <p class="feedback">"Service rapide et qualité irréprochable. Mes flyers ont fait sensation"</p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="testimonial">
+                <img src="Image/flori.jpg" alt="User" class="user-image">
+                <h3 class="name">Floriane Ouedraogo</h3>
+                <p class="feedback">"Créativité, professionnalisme et réactivité. J'ai hâte de travailler à nouveau ensemble!"</p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="testimonial">
+                <img src="Image/rayan.jpg" alt="User" class="user-image">
+                <h3 class="name">Rayan Kabore</h3>
+                <p class="feedback">"Le résultat est au-delà de mes attentes. Mes cartes de visite font déjà leur effet !"</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+   <!--Section Portfolio-->
+<section class="gallery-section" id="portfolio">
+  <h2 class="section-title">Portfolio</h2>
+  <div class="section-content">
+    <ul class="gallery-list">
+      <li class="gallery-item">
+        <img src="Image/SUNDAY.jpg" alt="Projet Sunday" class="gallery-image">
+      </li>
+      <li class="gallery-item">
+        <img src="Image/STAND-POSTER.jpg" alt="Stand Poster" class="gallery-image">
+      </li>
+      <li class="gallery-item">
+        <img src="Image/Dollars-pronos.jpg" alt="Dollars Pronos" class="gallery-image">
+      </li>
+      <li class="gallery-item">
+        <img src="Image/cere.jpg" alt="Projet Cere" class="gallery-image">
+      </li>
+      <li class="gallery-item">
+        <img src="Image/8-mars.jpg" alt="8 Mars" class="gallery-image">
+      </li>
+      <li class="gallery-item">
+        <img src="Image/BONNE-SEMAINE-2.jpg" alt="Début de Semaine" class="gallery-image">
+      </li>
+    </ul>
+  </div>
+</section>
+
+   <!--Section Contact-->
+   <section class="contact-section" id="contact">
+     <h2 class="section-title">Contactez nous </h2>
+     <div class="section-content">
+      <ul class="contact-info-list">
+      <li class="contact-info"></li>
+      <i class="fa-solid fa-location-crosshairs"></i>
+      <p>Kamboinse, Secteur 38 , Ouagadougou 09, BF 226</p>
+
+      <li class="contact-info"></li>
+      <i class="fa-regular fa-envelope"></i>
+      <p>rayaissekevin2@gmail.com</p>
+
+       <li class="contact-info"></li>
+      <i class="fa-solid fa-phone"></i>
+      <p>(+226) 57-57-96-51 / 01-00-77-15</p>
+
+       <li class="contact-info"></li>
+      <i class="fa-regular fa-clock"></i>
+      <p>Lundi - Vendredi: 7h:00mn - 20h:00mn</p>
+
+      <li class="contact-info"></li>
+      <i class="fa-regular fa-clock"></i>
+      <p>Samedi: 7h:00mn - 12h:00mn</p>
+
+
+       <li class="contact-info"></li>
+      <i class="fa-regular fa-clock"></i>
+      <p>Dimanche: Fermé</p>
+
+       <li class="contact-info"></li>
+      <i class="fa-solid fa-globe"></i>
+      <p>www.rkgraphics.com</p>
+      </ul>
+
+      <form action="https://formspree.io/f/mgvylygj" method="POST" class="contact-form">
+        <input type="text" name="name" placeholder="Votre nom" class="form-input" required>
+        <input type="email" name="email" placeholder="Votre email" class="form-input" required>
+        <textarea name="message" placeholder="Votre message" class="form-input" required></textarea>
+        <button type="submit" class="submit-button">Envoyer</button>
+      </form>
+     </div>
+   </section>
+   
+   <!--Section Pied de page-->
+   <footer class="footer-section">
+    <div class="section-content">
+      <p class="copyright-text">© 2025 Rk Graphics</p>
+
+    <div class="social-link-list">
+      <a href="https://www.facebook.com/share/1Eqj3wBgy2/" class="social-link"><i class="fab fa-facebook"></i></a>
+      <a href="https://wa.me/22657579651" class="social-link"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.linkedin.com/in/kevin-rayaisse-2b3789289" class="social-link"><i class="fab fa-linkedin"></i></a> 
+    </div>
+    <p class="policy-text">
+      <a href="#" class="policy-link">Politique de confidentialité</a>
+      <span class="separator">|</span>
+      <a href="#" class="policy-link">Conditions d'utilisation</a>
+
+    </p>
+    </div>
+   </footer>
+   </main>
+
+
+  <!--Lien Swiper script-->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js">
+  </script>
+
+  <!--Lien customisation script-->
+  <script src="script.js"></script>
+
+
+</body>
+</html>

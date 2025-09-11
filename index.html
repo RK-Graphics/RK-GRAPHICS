@@ -7,297 +7,1328 @@
     <!-- Lien Font Awesome pour les icônes -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!--Lien Swiper CSS-->
-    <Link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <style>
+        /* Importés de Google Fonts  */
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        :root {
+            --white-color: #fff;
+            --dark-color: #252525;
+            --primary-color: #262525;
+            --secondary-color: #c77dff;
+            --medium-gray-color: #ccc;
+            --hover-effect: 0 4px 12px rgba(199, 125, 255, 0.3);
+            --logo-height: 60px;                   
+            --logo-height-mobile: 50px;            
+
+            /* Tailles de police */
+            --font-size-xs: 0.8rem;
+            --font-size-s: 0.9rem;
+            --font-size-n: 1rem;
+            --font-size-m: 1.12rem;
+            --font-size-l: 1.5rem;
+            --font-size-xl: 2.5rem;                
+            --font-size-xxl: 2.3rem;
+
+            /* Poids de police */
+            --font-weight-normal: 400;
+            --font-weight-medium: 500;
+            --font-weight-semibold: 600;
+            --font-weight-bold: 700;
+
+            /* Bordures */
+            --border-radius-s: 8px;
+            --border-radius-m: 30px;
+            --border-radius-circle: 50%;
+
+            --site-max-width: 1300px;
+        } 
+
+        /* Général */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none; 
+        }
+
+        button {
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .section-content {
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 20px;
+            max-width: var(--site-max-width);
+        }
+
+        .section-title {
+            text-align: center;
+            padding: 60px 0 40px;
+            text-transform: uppercase;
+            font-size: var(--font-size-xl);
+        }
+
+        .section-title::after {
+            content: "";
+            width: 150px;
+            height: 5px;
+            display: block;
+            margin: 10px auto 0;
+            border-radius: var(--border-radius-s);
+            background-color: var(--secondary-color);
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            background: var(--primary-color);
+            top: 0;
+            height: 80px;
+        }
+
+        header .navbar {
+            display: flex;
+            padding: 10px 20px;
+            align-items: center;
+            justify-content: space-between;    
+            height: 100%;
+        }
+
+        /* Styles pour le logo */
+        .navbar .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-img {
+            height: var(--logo-height);
+            width: auto;
+            max-width: 200px;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar .nav-logo:hover .logo-img {
+            transform: scale(1.05);
+        }
+
+        .navbar .nav-logo .logo-text {
+            color: var(--white-color);
+            font-size: var(--font-size-l);
+            font-weight: var(--font-weight-semibold);
+            transition: all 0.3s ease;
+            margin: 0;
+            line-height: 1;
+        }
+
+        /* Menu navigation */
+        .navbar .nav-menu {
+            display: flex;   
+            gap: 5px;
+        }
+
+        .navbar .nav-menu .nav-link {
+            padding: 8px 15px;
+            color: var(--white-color);
+            font-size: var(--font-size-n);
+            background: none;
+            border-radius: var(--border-radius-m);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .navbar .nav-menu .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 15px;
+            width: calc(100% - 30px);
+            height: 2px;
+            background: var(--secondary-color);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .navbar .nav-menu .nav-link:hover {
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        .navbar .nav-menu .nav-link:hover::after {
+            transform: scaleX(1);
+        }
+
+        /* Hero Section  */
+        .hero-section {
+            background: var(--primary-color) url('Image/background1.jpg') no-repeat center center;
+            background-size: cover;
+            position: relative;
+            min-height: 100vh;
+            padding-top: 80px;
+            background-attachment: fixed;
+            background-blend-mode: overlay;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(38, 37, 37, 0.6);
+            z-index: 0;
+        }
+
+        .hero-section .section-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            flex-wrap: wrap;
+        }
+
+        .hero-section .hero-details {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+            color: var(--white-color);
+        }
+
+        .hero-section .hero-details .title {
+            font-size: var(--font-size-xxl);
+            color: var(--secondary-color);
+            font-family: "Pacifico", cursive;
+            margin-bottom: 15px;
+        }
+
+        .hero-section .hero-details .subtitle {
+            margin-top: 8px;
+            max-width: 100%;
+            font-size: var(--font-size-l);
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .hero-section .hero-details .description {
+            max-width: 100%;
+            margin: 20px 0 30px;
+            font-size: var(--font-size-m);
+        }
+
+        .hero-section .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .hero-section .hero-details .button {
+            padding: 12px 26px;
+            border: 2px solid transparent;
+            color: var(--white-color);
+            border-radius: var(--border-radius-m);
+            background: var(--secondary-color);
+            font-weight: var(--font-weight-medium);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+            flex: 1;
+            min-width: 160px;
+            text-align: center;
+        }
+
+        .hero-section .hero-details .button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .hero-section .hero-details .button:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--hover-effect);
+            border-color: var(--white-color);
+            background: transparent;
+        }
+
+        .hero-section .hero-details .button:hover::before {
+            left: 100%;
+        }
+
+        .hero-section .hero-image-wrapper {
+            flex: 1;
+            max-width: 500px;
+            min-width: 300px;
+            padding: 20px;
+            transition: transform 0.5s ease;
+        }
+
+        .hero-section .hero-image-wrapper:hover {
+            transform: scale(1.03);
+        }
+
+        /* Menu Burger */
+        .burger-toggle {
+            display: none;
+        }
+
+        .burger {
+            display: none;
+            cursor: pointer;
+            z-index: 10;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .burger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: var(--white-color);
+            transition: all 0.3s ease;
+        }
+
+        .burger:hover span {
+            background: var(--secondary-color);
+            transform: scaleY(1.2);
+        }
+
+        /*A propos de personalisation*/
+        .about-section {
+            padding: 80px 0;
+            background:#faf4fa; 
+        }
+
+        .about-section .section-content {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .about-section .about-image-wrapper {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .about-section .about-image-wrapper .about-image {
+            width: 100%;
+            max-width: 400px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: var(--border-radius-circle);
+        }
+
+        .about-section .about-details {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-section .about-details .section-title {
+            padding: 0;
+            text-align: left;
+        }
+
+        .about-section .about-details .text {
+            line-height: 30px;
+            margin: 20px 0;
+            font-size: var(--font-size-m);
+            text-align: justify;
+        }
+
+        .about-section .social-link-list {
+            display: flex;
+            gap: 25px;
+            justify-content: flex-start; 
+            margin-top: 30px;
+        }
+
+        .about-section .social-link-list .social-link {
+            color: var(--primary-color);
+            font-size: var(--font-size-l);
+            transition: 0.2s ease; 
+        }
+
+        .about-section .social-link-list .social-link:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Services sections styling */
+        .menu-section {
+            color: var(--white-color);
+            background:#5f0671;
+            padding: 50px 0;
+        }
+
+        .menu-section .menu-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: stretch;
+            justify-content: center;
+            padding-bottom: 50px;
+        }
+
+        .menu-section .menu-list .menu-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: calc(33.333% - 30px);
+            min-width: 250px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius-s);
+            transition: transform 0.3s ease;
+        }
+
+        .menu-section .menu-list .menu-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .menu-section .menu-list .menu-item .menu-image {
+            width: 100%;
+            max-width: 150px;
+            height: auto;
+            margin-bottom: 15px;
+            object-fit: contain;
+        }
+
+        .menu-section .menu-list .menu-item .name {
+            margin: 12px 0;
+            font-size: var(--font-size-m);
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .menu-section .menu-list .menu-item .text {
+            font-size: var(--font-size-s);
+            text-align: center;
+            hyphens: auto;
+        }
+
+        /*Temoignages section styling */ 
+        .testimonials-section {
+            padding: 50px 0;
+            background: #faf4fa;
+        }
+
+        .testimonial-swiper {
+            width: 100%;
+            padding: 20px 0 50px !important;
+        }
+
+        .testimonial {
+            display: flex;
+            padding: 20px;
+            text-align: center;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+            background: var(--white-color);
+            border-radius: var(--border-radius-s);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .user-image {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border-radius: var(--border-radius-circle);
+        }
+
+        .swiper-button-next, 
+        .swiper-button-prev {
+            width: 40px !important;
+            height: 40px !important;
+            background-color: var(--white-color) !important;
+            color: var(--secondary-color) !important;
+            border-radius: 50% !important;
+            border: 2px solid var(--secondary-color) !important;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+            top: 50% !important;
+            transform: translateY(-50%) !important;
+            transition: all 0.3s ease !important;
+            opacity: 0.9;
+        }
+
+        .swiper-button-next:hover,
+        .swiper-button-prev:hover {
+            background-color: var(--secondary-color) !important;
+            color: var(--white-color) !important;
+            transform: translateY(-50%) scale(1.1) !important;
+            opacity: 1;
+            box-shadow: 0 6px 20px rgba(199, 125, 255, 0.3) !important;
+        }
+
+        .swiper-button-next::after, 
+        .swiper-button-prev::after {
+            font-size: 20px !important;
+            font-weight: bold !important;
+        }
+
+        .swiper-button-next {
+            right: 10px !important;
+        }
+
+        .swiper-button-prev {
+            left: 10px !important;
+        }
+
+        .swiper-pagination-bullet {
+            width: 12px !important;
+            height: 12px !important;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: rgb(177, 94, 232) !important;
+        }
+
+        /* Portfolio sections styling */
+        .gallery-section {
+            padding: 50px 0;
+        }
+
+        .gallery-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 0;
+            margin: 0 auto;
+            max-width: 1200px;
+            list-style: none;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius-s);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            aspect-ratio: 1 / 1;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Contactez nous section styling */
+        .contact-section {
+            padding: 50px 0;
+            background: #faf4fa;
+        }
+
+        .contact-section .section-content {
+            display: flex;
+            gap: 48px;
+            align-items: flex-start;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .contact-section .contact-info-list {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-section .contact-info-list .contact-info {
+            display: flex;
+            gap: 15px;
+            margin: 15px 0;
+            align-items: center;
+        }
+
+        .contact-section .contact-info-list .contact-info i {
+            font-size: var(--font-size-m);
+            color: var(--secondary-color);
+            min-width: 20px;
+        }
+
+        .contact-section .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-section .contact-form .form-input {
+            width: 100%;
+            height: 50px;
+            padding: 0 12px;
+            outline: none;
+            margin-bottom: 15px;
+            background: var(--white-color);
+            border-radius: var(--border-radius-s);
+            border: 1px solid var(--medium-gray-color);
+            font-size: var(--font-size-n);
+        }
+
+        .contact-section .contact-form .form-input:focus {
+            border-color: var(--secondary-color);
+        }
+
+        .contact-section .contact-form textarea {
+            height: 120px;
+            padding: 12px;
+            resize: vertical;
+        }
+
+        .contact-section .contact-form .submit-button {
+            padding: 12px 30px;
+            margin-top: 10px;
+            color: var(--white-color);
+            font-size: var(--font-size-m);
+            font-weight: var(--font-weight-medium);
+            background: var(--primary-color);
+            border-radius: var(--border-radius-m);
+            border: 1px solid var(--primary-color);
+            transition: 0.3s ease;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .contact-section .contact-form .submit-button:hover {
+            color: var(--primary-color);
+            background: transparent;
+        }
+
+        /* Footer section styling */
+        .footer-section {
+            padding: 30px 0;
+            background: var(--dark-color);
+            text-align: center;
+        }
+
+        .footer-section .section-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer-section :where(.copyright-text, .social-link-list, .policy-link) {
+            color: var(--white-color);
+            transition: 0.2s ease;
+        }
+
+        .footer-section .social-link-list {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-section .social-link-list .social-link {
+            color: var(--white-color);
+            font-size: var(--font-size-l);
+        }
+
+        .footer-section .social-link-list .social-link:hover,
+        .footer-section .policy-text .policy-link:hover {
+            color: var(--secondary-color);
+        }
+
+        .footer-section .policy-text .separator {
+            margin: 0 10px;
+            color: var(--white-color);
+        }
+
+        /* ========== MEDIA QUERIES ========== */
+
+        /* Tablettes */
+        @media screen and (max-width: 1024px) {
+            :root {
+                --font-size-xl: 2rem;
+                --font-size-xxl: 2rem;
+            }
+            
+            .menu-section .menu-list .menu-item {
+                width: calc(50% - 30px);
+            }
+            
+            .hero-section .hero-details .title {
+                font-size: var(--font-size-xl);
+            }
+            
+            .hero-section .hero-details .subtitle {
+                font-size: var(--font-size-l);
+            }
+        }
+
+        /* Version Mobile 900px */
+        @media screen and (max-width: 900px) {
+            .burger {
+                display: flex;
+                position: relative;
+                z-index: 20;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100vh;
+                background: var(--primary-color);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 0;
+                margin: 0;
+                transform: translateX(-100%);
+                transition: transform 0.5s ease;
+                z-index: 10;
+                gap: 2rem;
+            }
+
+            .burger-toggle:checked ~ .nav-menu {
+                transform: translateX(0);
+            }
+
+            .nav-item {
+                width: 100%;
+                text-align: center;
+                margin: 0;
+                opacity: 0;
+                transform: translateY(20px);
+                transition: all 0.4s ease;
+            }
+
+            .burger-toggle:checked ~ .nav-menu .nav-item {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .nav-link {
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                width: 80%;
+                max-width: 250px;
+                padding: 1.2rem 2rem;
+                font-size: var(--font-size-l);
+                border-radius: var(--border-radius-m);
+                transition: all 0.3s ease;
+                background: transparent;
+            }
+
+            .nav-link:hover {
+                background: var(--secondary-color);
+                transform: scale(1.05);
+                color: var(--white-color);
+            }
+
+            /* Animation des barres */
+            .burger-toggle:checked + .burger span:nth-child(1) {
+                transform: rotate(45deg) translate(6px, 6px);
+                background: var(--secondary-color);
+            }
+            
+            .burger-toggle:checked + .burger span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .burger-toggle:checked + .burger span:nth-child(3) {
+                transform: rotate(-45deg) translate(6px, -6px);
+                background: var(--secondary-color);
+            } 
+            
+            /* Adaptation du logo en mobile */
+            .logo-img {
+                height: var(--logo-height-mobile);
+                max-width: 180px;
+            }
+            
+            .navbar .nav-logo .logo-text {
+                font-size: var(--font-size-m);
+            }
+            
+            /* Styles héros responsive */
+            .hero-section .section-content {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 20px;
+            }
+            
+            .hero-details, .hero-image-wrapper {
+                width: 100%;
+                max-width: 100%;
+            }
+            
+            .hero-section .buttons {
+                justify-content: center;
+            }
+            
+            .about-section .section-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .about-section .about-details .section-title {
+                text-align: center;
+            }
+            
+            .about-section .social-link-list {
+                justify-content: center;
+            }
+            
+            .menu-section .menu-list .menu-item {
+                width: 100%;
+                max-width: 400px;
+            }
+            
+            .contact-section .section-content {
+                flex-direction: column;
+            }
+            
+            .swiper-button-next, 
+            .swiper-button-prev {
+                display: none;
+            }
+        }
+
+        /* Téléphones mobiles */
+        @media screen and (max-width: 640px) {
+            :root {
+                --font-size-xl: 1.8rem;
+                --font-size-xxl: 1.8rem;
+                --font-size-l: 1.3rem;
+                --font-size-m: 1rem;
+            }
+            
+            .section-title {
+                padding: 40px 0 30px;
+                font-size: var(--font-size-l);
+            }
+            
+            .hero-section {
+                min-height: auto;
+                padding: 80px 0 50px;
+            }
+            
+            .hero-section .hero-details .title {
+                font-size: var(--font-size-xxl);
+                margin-bottom: 10px;
+            }
+            
+            .hero-section .hero-details .subtitle {
+                font-size: var(--font-size-m);
+            }
+            
+            .hero-section .buttons {
+                flex-direction: column;
+            }
+            
+            .hero-section .hero-details .button {
+                width: 100%;
+            }
+            
+            .about-section .about-image-wrapper .about-image {
+                max-width: 280px;
+                height: 280px;
+            }
+            
+            .gallery-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-section .section-content {
+                gap: 15px;
+            }
+            
+            .footer-section .policy-text {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .footer-section .policy-text .separator {
+                display: none;
+            }
+        }
+
+        /* Petits téléphones */
+        @media screen and (max-width: 400px) {
+            :root {
+                --font-size-xl: 1.5rem;
+                --font-size-xxl: 1.5rem;
+            }
+            
+            .section-content {
+                padding: 0 15px;
+            }
+            
+            .navbar {
+                padding: 10px 15px;
+            }
+            
+            .logo-text {
+                font-size: var(--font-size-m);
+            }
+            
+            .hero-section .hero-details .button {
+                padding: 10px 20px;
+                font-size: var(--font-size-s);
+            }
+            
+            .about-section .about-image-wrapper .about-image {
+                max-width: 250px;
+                height: 250px;
+            }
+            
+            .menu-section .menu-list .menu-item {
+                min-width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
-  <!-- Entete / Barre de navigation -->
-  <header>
-    <nav class="navbar section-content"> 
-      <a href="#" class="nav-logo">
-        <div class="logo-container">
-          <img src="Image/logo.png" alt="RK Graphics Logo" class="logo-img">
-          <h2 class="logo-text">RK Graphics</h2>  
-        </div>
-      </a>
-      
-      <!-- Menu Sans JS -->
-      <input type="checkbox" id="burger-toggle" class="burger-toggle">
-      <label for="burger-toggle" class="burger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </label>
-      
-      <ul class="nav-menu">
-        <li class="nav-item">
-          <a href="#accueil" class="nav-link">Accueil</a>
-        </li>
-        <li class="nav-item">
-          <a href="#apropos" class="nav-link">À Propos</a>
-        </li>
-        <li class="nav-item">
-          <a href="#services" class="nav-link">Services</a>
-        </li>
-        <li class="nav-item">
-          <a href="#temoignages" class="nav-link">Témoignages</a>
-        </li>
-        <li class="nav-item">
-          <a href="#portfolio" class="nav-link">Portfolio</a>
-        </li>
-        <li class="nav-item">
-          <a href="#contact" class="nav-link">Contact</a>
-        </li>
-      </ul> 
-    </nav>
-  </header>
- 
+    <!-- Entete / Barre de navigation -->
+    <header>
+        <nav class="navbar section-content"> 
+            <a href="#" class="nav-logo">
+                <div class="logo-container">
+                    <img src="Image/logo.png" alt="RK Graphics Logo" class="logo-img">
+                    <h2 class="logo-text">RK Graphics</h2>  
+                </div>
+            </a>
+            
+            <!-- Menu Sans JS -->
+            <input type="checkbox" id="burger-toggle" class="burger-toggle">
+            <label for="burger-toggle" class="burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#accueil" class="nav-link">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#apropos" class="nav-link">À Propos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#services" class="nav-link">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#temoignages" class="nav-link">Témoignages</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#portfolio" class="nav-link">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul> 
+        </nav>
+    </header>
+    
     <!-- Section Accueil-->
     <section class="hero-section" id="accueil">
-      <div class="section-content">
-        <div class="hero-details">
-          <h2 class="title">Meilleurs Visuels</h2>
-          <h3 class="subtitle">Boostez votre image avec des visuels inoubliables !</h3>
-          <p class="description">Bienvenue chez RK Graphics là où chaque identité
-            visuelle éveille une émotion.</p>
-            <div class="buttons">
-              <a href="https://wa.me/22657579651" class="button order-now">Commandez Maintenant</a>
-              <a href="https://wa.me/22657579651" class="button contact-us">Contactez Nous</a>
+        <div class="section-content">
+            <div class="hero-details">
+                <h2 class="title">Meilleurs Visuels</h2>
+                <h3 class="subtitle">Boostez votre image avec des visuels inoubliables !</h3>
+                <p class="description">Bienvenue chez RK Graphics là où chaque identité
+                    visuelle éveille une émotion.</p>
+                <div class="buttons">
+                    <a href="https://wa.me/22657579651" class="button order-now">Commandez Maintenant</a>
+                    <a href="https://wa.me/22657579651" class="button contact-us">Contactez Nous</a>
+                </div>
             </div>
-          </div>
-          <div class="hero-image-wrapper">
-            <img src="Image/header-1.png" alt="Hero" class="hero-image">
-          </div>
-      </div>
+            <div class="hero-image-wrapper">
+                <img src="Image/header-1.png" alt="Hero" class="hero-image">
+            </div>
+        </div>
     </section>
 
     <!--A propos de-->
     <section class="about-section" id="apropos">
-      <div class="section-content">
-       <div class="about-image-wrapper">
-        <img src="Image/Photoshoot-kevin.jpg" alt="About"
-         class="about-image">
+        <div class="section-content">
+            <div class="about-image-wrapper">
+                <img src="Image/Photoshoot-kevin.jpg" alt="About" class="about-image">
+            </div>
+            <div class="about-details">
+                <h2 class="section-title">A Propos de Nous</h2> 
+                <p class="text">Chez RK Graphics, nous croyons que chaque image raconte une histoire.
+                    Spécialisés dans le graphic design, nous mettons notre passion et notre créativité au service de votre image de marque.
+                    De la création d'affiches percutantes à l'élaboration d'identités visuelles uniques, nous travaillons avec précision pour donner vie à vos idées.</p>  
+                <div class="social-link-list">
+                    <a href="https://www.facebook.com/share/1Eqj3wBgy2/" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="https://wa.me/22657579651" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.linkedin.com/in/kevin-rayaisse-2b3789289" class="social-link"><i class="fab fa-linkedin"></i></a> 
+                </div>
+            </div> 
         </div>
-        <div class="about-details">
-          <h2 class="section-title">A Propos de Nous</h2> 
-          <p class="text" style="text-align: justify;">Chez RK Graphics, nous croyons que chaque image raconte une histoire.
-            Spécialisés dans le graphic design, nous mettons notre passion et notre créativité au service de votre image de marque.
-            De la création d'affiches percutantes à l'élaboration d'identités visuelles uniques, nous travaillons avec précision pour donner vie à vos idées.</p>  
-           <div class="social-link-list">
-             <a href="https://www.facebook.com/share/1Eqj3wBgy2/" class="social-link"><i class="fab fa-facebook"></i></a>
-            <a href="https://wa.me/22657579651" class="social-link"><i class="fab fa-whatsapp"></i></a>
-            <a href="https://www.linkedin.com/in/kevin-rayaisse-2b3789289" class="social-link"><i class="fab fa-linkedin"></i></a> 
-           </div>
-       </div> 
-      </div>
     </section>
     
     <!--Section Menu-->
     <section class="menu-section" id="services">
-      <h2 class="section-title">Nos Services</h2>
-      <div class="section-content">
-        <ul class="menu-list">
-          <li class="menu-item">
-            <img src="Image/Kakemonos.png" alt="Kakemonos"
-             class="menu-image">
-             <h3 class="name">Kakémonos</h3>
-             <p class="text">Un support vertical percutant, 
-              parfait pour capturer l'attention en vitrine ou lors d'évènements.
-             </p>         
-          </li>
-          <li class="menu-item">
-            <img src="Image/logos.png" alt="Logos"
-             class="menu-image">
-             <h3 class="name">Logos</h3>
-             <p class="text">Un symbole unique qui représente parfaitement votre
-               entreprise et renforce votre image de marque.
-             </p>         
-          </li>
-          <li class="menu-item">
-            <img src="Image/Affiche.png" alt="Affiche"
-             class="menu-image">
-             <h3 class="name">Affiches</h3>
-             <p class="text">Idéales pour diffuser vos messages à grande échelle,
-               les affiches attirent l'attention ou qu'elles soient placées.
-             </p>         
-          </li>
-          <li class="menu-item">
-            <img src="Image/Flyer.png" alt="Flyer"
-             class="menu-image">
-             <h3 class="name">Flyers</h3>
-             <p class="text">Un format compact pour une communication percutante,
-               idéal pour distribuer et promouvoir vos services.
-             </p>         
-          </li>
-          <li class="menu-item">
-            <img src="Image/brochures.png" alt="Brochures"
-             class="menu-image">
-             <h3 class="name">Brochures</h3>
-             <p class="text">Un support complet pour présenter vos services de 
-              manière détaillée et attrayante.
-             </p>         
-          </li>
-          <li class="menu-item">
-            <img src="Image/Carte de visite.png" alt="Carte de visite"
-             class="menu-image">
-             <h3 class="name">Carte de visite</h3>
-             <p class="text">Un moyen élégant et pratique de présenter votre 
-              entreprise et de marquer chaque rencontre professionnelle.
-             </p>         
-          </li>
-        </ul>
-      </div>
+        <h2 class="section-title">Nos Services</h2>
+        <div class="section-content">
+            <ul class="menu-list">
+                <li class="menu-item">
+                    <img src="Image/Kakemonos.png" alt="Kakemonos" class="menu-image">
+                    <h3 class="name">Kakémonos</h3>
+                    <p class="text">Un support vertical percutant, 
+                        parfait pour capturer l'attention en vitrine ou lors d'évènements.
+                    </p>         
+                </li>
+                <li class="menu-item">
+                    <img src="Image/logos.png" alt="Logos" class="menu-image">
+                    <h3 class="name">Logos</h3>
+                    <p class="text">Un symbole unique qui représente parfaitement votre
+                        entreprise et renforce votre image de marque.
+                    </p>         
+                </li>
+                <li class="menu-item">
+                    <img src="Image/Affiche.png" alt="Affiche" class="menu-image">
+                    <h3 class="name">Affiches</h3>
+                    <p class="text">Idéales pour diffuser vos messages à grande échelle,
+                        les affiches attirent l'attention ou qu'elles soient placées.
+                    </p>         
+                </li>
+                <li class="menu-item">
+                    <img src="Image/Flyer.png" alt="Flyer" class="menu-image">
+                    <h3 class="name">Flyers</h3>
+                    <p class="text">Un format compact pour une communication percutante,
+                        idéal pour distribuer et promouvoir vos services.
+                    </p>         
+                </li>
+                <li class="menu-item">
+                    <img src="Image/brochures.png" alt="Brochures" class="menu-image">
+                    <h3 class="name">Brochures</h3>
+                    <p class="text">Un support complet pour présenter vos services de 
+                        manière détaillée et attrayante.
+                    </p>         
+                </li>
+                <li class="menu-item">
+                    <img src="Image/Carte de visite.png" alt="Carte de visite" class="menu-image">
+                    <h3 class="name">Carte de visite</h3>
+                    <p class="text">Un moyen élégant et pratique de présenter votre 
+                        entreprise et de marquer chaque rencontre professionnelle.
+                    </p>         
+                </li>
+            </ul>
+        </div>
     </section>
 
     <!--Section Temoignages-->
     <section class="testimonials-section" id="temoignages">
-      <h2 class="section-title">Temoignages</h2>
-      <div class="section-content">
-        <div class="swiper testimonial-swiper">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <div class="testimonial">
-                <img src="Image/Axel.jpg" alt="User" class="user-image">
-                <h3 class="name">Axel Sanou</h3>
-                <p class="feedback">"Design pro, rapide et exactement ce que je voulais. Super travail !"</p>
-              </div>
+        <h2 class="section-title">Temoignages</h2>
+        <div class="section-content">
+            <div class="swiper testimonial-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="testimonial">
+                            <img src="Image/Axel.jpg" alt="User" class="user-image">
+                            <h3 class="name">Axel Sanou</h3>
+                            <p class="feedback">"Design pro, rapide et exactement ce que je voulais. Super travail !"</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial">
+                            <img src="Image/Ilary.jpg" alt="User" class="user-image">
+                            <h3 class="name">Ilary Koara</h3>
+                            <p class="feedback">"Super design, livraison rapide et résultat au top. Je referai appel sans hésiter !"</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial">
+                            <img src="Image/Tkj.jpg" alt="User" class="user-image">
+                            <h3 class="name">Judicael Traoré</h3>
+                            <p class="feedback">"Service rapide et qualité irréprochable. Mes flyers ont fait sensation"</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial">
+                            <img src="Image/flori.jpg" alt="User" class="user-image">
+                            <h3 class="name">Floriane Ouedraogo</h3>
+                            <p class="feedback">"Créativité, professionnalisme et réactivité. J'ai hâte de travailler à nouveau ensemble!"</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial">
+                            <img src="Image/rayan.jpg" alt="User" class="user-image">
+                            <h3 class="name">Rayan Kabore</h3>
+                            <p class="feedback">"Le résultat est au-delà de mes attentes. Mes cartes de visite font déjà leur effet !"</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
             </div>
-            <div class="swiper-slide">
-              <div class="testimonial">
-                <img src="Image/Ilary.jpg" alt="User" class="user-image">
-                <h3 class="name">Ilary Koara</h3>
-                <p class="feedback">"Super design, livraison rapide et résultat au top. Je referai appel sans hésiter !"</p>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="testimonial">
-                <img src="Image/Tkj.jpg" alt="User" class="user-image">
-                <h3 class="name">Judicael Traoré</h3>
-                <p class="feedback">"Service rapide et qualité irréprochable. Mes flyers ont fait sensation"</p>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="testimonial">
-                <img src="Image/flori.jpg" alt="User" class="user-image">
-                <h3 class="name">Floriane Ouedraogo</h3>
-                <p class="feedback">"Créativité, professionnalisme et réactivité. J'ai hâte de travailler à nouveau ensemble!"</p>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="testimonial">
-                <img src="Image/rayan.jpg" alt="User" class="user-image">
-                <h3 class="name">Rayan Kabore</h3>
-                <p class="feedback">"Le résultat est au-delà de mes attentes. Mes cartes de visite font déjà leur effet !"</p>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-pagination"></div>
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
         </div>
-      </div>
     </section>
-  </main>
 
-   <!--Section Portfolio-->
-<section class="gallery-section" id="portfolio">
-  <h2 class="section-title">Portfolio</h2>
-  <div class="section-content">
-    <ul class="gallery-list">
-      <li class="gallery-item">
-        <img src="Image/SUNDAY.jpg" alt="Projet Sunday" class="gallery-image">
-      </li>
-      <li class="gallery-item">
-        <img src="Image/STAND-POSTER.jpg" alt="Stand Poster" class="gallery-image">
-      </li>
-      <li class="gallery-item">
-        <img src="Image/Dollars-pronos.jpg" alt="Dollars Pronos" class="gallery-image">
-      </li>
-      <li class="gallery-item">
-        <img src="Image/cere.jpg" alt="Projet Cere" class="gallery-image">
-      </li>
-      <li class="gallery-item">
-        <img src="Image/8-mars.jpg" alt="8 Mars" class="gallery-image">
-      </li>
-      <li class="gallery-item">
-        <img src="Image/BONNE-SEMAINE-2.jpg" alt="Début de Semaine" class="gallery-image">
-      </li>
-    </ul>
-  </div>
-</section>
+    <!--Section Portfolio-->
+    <section class="gallery-section" id="portfolio">
+        <h2 class="section-title">Portfolio</h2>
+        <div class="section-content">
+            <ul class="gallery-list">
+                <li class="gallery-item">
+                    <img src="Image/SUNDAY.jpg" alt="Projet Sunday" class="gallery-image">
+                </li>
+                <li class="gallery-item">
+                    <img src="Image/STAND-POSTER.jpg" alt="Stand Poster" class="gallery-image">
+                </li>
+                <li class="gallery-item">
+                    <img src="Image/Dollars-pronos.jpg" alt="Dollars Pronos" class="gallery-image">
+                </li>
+                <li class="gallery-item">
+                    <img src="Image/cere.jpg" alt="Projet Cere" class="gallery-image">
+                </li>
+                <li class="gallery-item">
+                    <img src="Image/8-mars.jpg" alt="8 Mars" class="gallery-image">
+                </li>
+                <li class="gallery-item">
+                    <img src="Image/BONNE-SEMAINE-2.jpg" alt="Début de Semaine" class="gallery-image">
+                </li>
+            </ul>
+        </div>
+    </section>
 
-   <!--Section Contact-->
-   <section class="contact-section" id="contact">
-     <h2 class="section-title">Contactez nous </h2>
-     <div class="section-content">
-      <ul class="contact-info-list">
-      <li class="contact-info"></li>
-      <i class="fa-solid fa-location-crosshairs"></i>
-      <p>Kamboinse, Secteur 38 , Ouagadougou 09, BF 226</p>
+    <!--Section Contact-->
+    <section class="contact-section" id="contact">
+        <h2 class="section-title">Contactez nous </h2>
+        <div class="section-content">
+            <ul class="contact-info-list">
+                <li class="contact-info">
+                    <i class="fa-solid fa-location-crosshairs"></i>
+                    <p>Kamboinse, Secteur 38 , Ouagadougou 09, BF 226</p>
+                </li>
+                <li class="contact-info">
+                    <i class="fa-regular fa-envelope"></i>
+                    <p>rayaissekevin2@gmail.com</p>
+                </li>
+                <li class="contact-info">
+                    <i class="fa-solid fa-phone"></i>
+                    <p>(+226) 57-57-96-51 / 01-00-77-15</p>
+                </li>
+                <li class="contact-info">
+                    <i class="fa-regular fa-clock"></i>
+                    <p>Lundi - Vendredi: 7h:00mn - 20h:00mn</p>
+                </li>
+                <li class="contact-info">
+                    <i class="fa-regular fa-clock"></i>
+                    <p>Samedi: 7h:00mn - 12h:00mn</p>
+                </li>
+                <li class="contact-info">
+                    <i class="fa-regular fa-clock"></i>
+                    <p>Dimanche: Fermé</p>
+                </li>
+                <li class="contact-info">
+                    <i class="fa-solid fa-globe"></i>
+                    <p>www.rkgraphics.com</p>
+                </li>
+            </ul>
 
-      <li class="contact-info"></li>
-      <i class="fa-regular fa-envelope"></i>
-      <p>rayaissekevin2@gmail.com</p>
+            <form action="https://formspree.io/f/mgvylygj" method="POST" class="contact-form">
+                <input type="text" name="name" placeholder="Votre nom" class="form-input" required>
+                <input type="email" name="email" placeholder="Votre email" class="form-input" required>
+                <textarea name="message" placeholder="Votre message" class="form-input" required></textarea>
+                <button type="submit" class="submit-button">Envoyer</button>
+            </form>
+        </div>
+    </section>
+    
+    <!--Section Pied de page-->
+    <footer class="footer-section">
+        <div class="section-content">
+            <p class="copyright-text">© 2025 Rk Graphics</p>
 
-       <li class="contact-info"></li>
-      <i class="fa-solid fa-phone"></i>
-      <p>(+226) 57-57-96-51 / 01-00-77-15</p>
+            <div class="social-link-list">
+                <a href="https://www.facebook.com/share/1Eqj3wBgy2/" class="social-link"><i class="fab fa-facebook"></i></a>
+                <a href="https://wa.me/22657579651" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.linkedin.com/in/kevin-rayaisse-2b3789289" class="social-link"><i class="fab fa-linkedin"></i></a> 
+            </div>
+            <p class="policy-text">
+                <a href="#" class="policy-link">Politique de confidentialité</a>
+                <span class="separator">|</span>
+                <a href="#" class="policy-link">Conditions d'utilisation</a>
+            </p>
+        </div>
+    </footer>
 
-       <li class="contact-info"></li>
-      <i class="fa-regular fa-clock"></i>
-      <p>Lundi - Vendredi: 7h:00mn - 20h:00mn</p>
+    <!--Lien Swiper script-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-      <li class="contact-info"></li>
-      <i class="fa-regular fa-clock"></i>
-      <p>Samedi: 7h:00mn - 12h:00mn</p>
+    <!--Lien customisation script-->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialisation du Swiper
+            const testimonialSwiper = new Swiper('.testimonial-swiper', {
+                // Paramètres de base
+                direction: 'horizontal',
+                loop: true,
+                grabCursor: true,
+                speed: 1000,
+                autoplay: {
+                    delay: 2500,
+                    disableOnInteraction: false,
+                },
 
+                // Pagination
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                    dynamicBullets: true
+                },
 
-       <li class="contact-info"></li>
-      <i class="fa-regular fa-clock"></i>
-      <p>Dimanche: Fermé</p>
+                // Navigation
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
 
-       <li class="contact-info"></li>
-      <i class="fa-solid fa-globe"></i>
-      <p>www.rkgraphics.com</p>
-      </ul>
+                // Configuration responsive
+                breakpoints: {
+                    320: {
+                        slidesPerView: 1,
+                        spaceBetween: 20
+                    },
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 30
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: 40
+                    }
+                }
+            });
 
-      <form action="https://formspree.io/f/mgvylygj" method="POST" class="contact-form">
-        <input type="text" name="name" placeholder="Votre nom" class="form-input" required>
-        <input type="email" name="email" placeholder="Votre email" class="form-input" required>
-        <textarea name="message" placeholder="Votre message" class="form-input" required></textarea>
-        <button type="submit" class="submit-button">Envoyer</button>
-      </form>
-     </div>
-   </section>
-   
-   <!--Section Pied de page-->
-   <footer class="footer-section">
-    <div class="section-content">
-      <p class="copyright-text">© 2025 Rk Graphics</p>
+            // Gestion du menu burger
+            const burgerToggle = document.getElementById('burger-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            const navItems = document.querySelectorAll('.nav-item');
 
-    <div class="social-link-list">
-      <a href="https://www.facebook.com/share/1Eqj3wBgy2/" class="social-link"><i class="fab fa-facebook"></i></a>
-      <a href="https://wa.me/22657579651" class="social-link"><i class="fab fa-whatsapp"></i></a>
-      <a href="https://www.linkedin.com/in/kevin-rayaisse-2b3789289" class="social-link"><i class="fab fa-linkedin"></i></a> 
-    </div>
-    <p class="policy-text">
-      <a href="#" class="policy-link">Politique de confidentialité</a>
-      <span class="separator">|</span>
-      <a href="#" class="policy-link">Conditions d'utilisation</a>
+            burgerToggle.addEventListener('change', function() {
+                if (this.checked) {
+                    navMenu.style.transform = 'translateX(0)';
+                    navItems.forEach((item, index) => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateY(0)';
+                        item.style.transitionDelay = `${index * 0.1}s`;
+                    });
+                } else {
+                    navMenu.style.transform = 'translateX(-100%)';
+                    navItems.forEach(item => {
+                        item.style.opacity = '0';
+                        item.style.transform = 'translateY(20px)';
+                    });
+                }
+            });
 
-    </p>
-    </div>
-   </footer>
-   </main>
+            // Fermer le menu lorsqu'un lien est cliqué (sur mobile)
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 900) {
+                        burgerToggle.checked = false;
+                        navMenu.style.transform = 'translateX(-100%)';
+                        navItems.forEach(item => {
+                            item.style.opacity = '0';
+                            item.style.transform = 'translateY(20px)';
+                        });
+                    }
+                });
+            });
 
+            // ===== CODE DE NAVIGATION FLUIDE =====
+            // Animation de défilement fluide améliorée
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    // Ne pas appliquer sur les liens externes ou autres
+                    if (this.getAttribute('href') === '#' || 
+                        this.getAttribute('href').startsWith('http') ||
+                        this.getAttribute('href').startsWith('mailto') ||
+                        this.getAttribute('href').startsWith('tel')) {
+                        return;
+                    }
+                    
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (!targetElement) return;
+                    
+                    // Calcul de la position cible avec offset pour le menu fixed
+                    const headerOffset = 80;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-  <!--Lien Swiper script-->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js">
-  </script>
-
-  <!--Lien customisation script-->
-  <script src="script.js"></script>
-
-
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Fermer le menu burger si ouvert
+                    if (burgerToggle && burgerToggle.checked) {
+                        burgerToggle.checked = false;
+                        navMenu.style.transform = 'translateX(-100%)';
+                        navItems.forEach(item => {
+                            item.style.opacity = '0';
+                            item.style.transform = 'translateY(20px)';
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

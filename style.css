@@ -304,55 +304,158 @@ header .navbar {
 
 /*A propos de personalisation*/
 
-.about-section {
- padding: 120px 0;
- background:#faf4fa; 
+/* ===== CORRECTION RESPONSIVE POUR LA SECTION À PROPOS ===== */
 
+.about-section {
+    padding: 80px 0;
+    background:#faf4fa; 
 }
 
-.about-section .section-content{
-  display: flex;
-  gap: 50px;
-  align-items: center;
-  justify-content: space-between;
+.about-section .section-content {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.about-section .about-image-wrapper {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+    max-width: 500px;
+    margin: 0 auto;
 }
 
 .about-section .about-image-wrapper .about-image {
-  width: 400px;
-  height:400px;
-  object-fit: cover;
-  border-radius: var(--border-radius-circle);
-
-}
-.about-section .about-details .section-title{
-  padding: 0;
-}
-
-.about-section .about-details{
-  max-width: 50%;
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+    object-fit: cover;
+    border-radius: 50%;
+    aspect-ratio: 1; /* Garantit un ratio carré */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
-.about-section .social-link-list{
- display: flex;
- gap: 25px;
- justify-content: center; 
+.about-section .about-details {
+    flex: 1;
+    min-width: 300px;
 }
 
-.about-section .social-link-list .social-link{
-  color: var(--primary-color);
-  font-size: var(--font-size-l);
-  transition: 0.2s ease; 
+.about-section .about-details .section-title {
+    text-align: left;
+    padding: 0 0 30px;
+    text-transform: uppercase;
+    font-size: var(--font-size-xl);
+    color: var(--primary-color);
 }
-.about-section .social-link-list .social-link:hover{
-  color: var(--secondary-color);
 
+.about-section .about-details .section-title::after {
+    content: "";
+    width: 100px;
+    height: 5px;
+    display: block;
+    margin: 10px 0 0;
+    border-radius: var(--border-radius-s);
+    background-color: var(--secondary-color);
 }
 
 .about-section .about-details .text {
-  line-height: 30px;
-  margin: 50px 0 30px;
-  text-align: center;
-  font-size: var(--font-size-m)
+    line-height: 1.8;
+    margin: 20px 0 30px;
+    font-size: var(--font-size-m);
+    text-align: justify;
+}
+
+.about-section .social-link-list {
+    display: flex;
+    gap: 25px;
+    justify-content: flex-start; 
+    margin-top: 30px;
+}
+
+.about-section .social-link-list .social-link {
+    color: var(--primary-color);
+    font-size: var(--font-size-l);
+    transition: 0.2s ease; 
+}
+
+.about-section .social-link-list .social-link:hover {
+    color: var(--secondary-color);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    .about-section .section-content {
+        gap: 40px;
+    }
+    
+    .about-section .about-image-wrapper .about-image {
+        max-width: 350px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .about-section .section-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .about-section .about-details {
+        padding: 20px 0;
+    }
+    
+    .about-section .about-details .section-title {
+        text-align: center;
+    }
+    
+    .about-section .about-details .section-title::after {
+        margin: 10px auto 0;
+    }
+    
+    .about-section .social-link-list {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .about-section {
+        padding: 70px 0;
+    }
+    
+    .about-section .about-image-wrapper .about-image {
+        max-width: 300px;
+    }
+    
+    .about-section .about-details .section-title {
+        font-size: var(--font-size-l);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .about-section {
+        padding: 50px 0;
+    }
+    
+    .about-section .about-image-wrapper .about-image {
+        max-width: 250px;
+    }
+    
+    .about-section .about-details .section-title {
+        font-size: var(--font-size-m);
+    }
+}
+
+/* Correction spécifique pour les téléphones mobiles */
+@media screen and (max-width: 420px) {
+    .about-section .about-image-wrapper .about-image {
+        max-width: 220px;
+    }
+    
+    .about-section .about-details .section-title {
+        font-size: var(--font-size-m);
+    }
 }
 
 /* Services sections styling */

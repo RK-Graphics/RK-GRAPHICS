@@ -321,10 +321,10 @@ header .navbar {
 
 .about-section .about-image-wrapper {
     flex: 1;
-    min-width: 300px;
+    min-width: 200px;
     display: flex;
     justify-content: center;
-    max-width: 500px;
+    max-width: 400px;
     margin: 0 auto;
 }
 
